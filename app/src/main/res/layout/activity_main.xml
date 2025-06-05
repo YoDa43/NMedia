@@ -128,21 +128,19 @@
         android:id="@+id/views"
         android:layout_width="@dimen/posts_avatar_size"
         android:layout_height="@dimen/posts_avatar_size"
-        android:layout_marginStart="322dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/favorite"
         android:src="@drawable/outline_remove_red_eye_24"
-        app:layout_constraintBottom_toBottomOf="@+id/share_count"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/share_count" />
+        app:layout_constraintEnd_toStartOf="@+id/view_count"
+        app:layout_constraintTop_toTopOf="@id/bottom_barrier" />
 
     <TextView
         android:id="@+id/view_count"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/views"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/views"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/views"
         tools:text="@sample/posts.json/data/viewCount" />
 
