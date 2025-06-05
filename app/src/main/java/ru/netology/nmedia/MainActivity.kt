@@ -29,18 +29,18 @@ class MainActivity : AppCompatActivity() {
             author = "Нетология. Университет интернет-профессий будущего",
             published = "21 мая в 18:36",
             content = "Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов по онлайн-маркетингу. Затем появились курсы по дизайну, разработке, аналитике и управлению. Мы растём сами и помогаем расти студентам: от новичков до уверенных профессионалов. Но самое важное остаётся с нами: мы верим, что в каждом уже есть сила, которая заставляет хотеть больше, целиться выше, бежать быстрее. Наша миссия — помочь встать на путь роста и начать цепочку перемен → http://netolo.gy/fyb",
-            likeCount = 1125,
+            likeCount = 999,
             likeByMe = false,
-            shareCount = 998,
-            viewCount = 3,
+            shareCount = 999,
+            viewCount = 999,
         )
         with(binding) {
             author.text = post.author
             content.text = post.content
             published.text = post.published
-            likeCount.text = getStrViewFromInt(post.likeCount)
-            shareCount.text = getStrViewFromInt(post.shareCount)
-            viewCount.text = post.viewCount.toString()
+            likeCount.text = getViewFormInt(post.likeCount)
+            shareCount.text = getViewFormInt(post.shareCount)
+            viewCount.text = getViewFormInt(post.viewCount)
             if (post.likeByMe) {
                 favoriteBorder.setImageResource(R.drawable.baseline_favorite_24)
             }
@@ -51,18 +51,22 @@ class MainActivity : AppCompatActivity() {
                 favoriteBorder.setImageResource(
                     if (post.likeByMe) {
                         post.likeCount += 1
-                        likeCount.text = getStrViewFromInt(post.likeCount)
+                        likeCount.text = getViewFormInt(post.likeCount)
                         R.drawable.baseline_favorite_24
                     } else {
                         post.likeCount -= 1
-                        likeCount.text = getStrViewFromInt(post.likeCount)
+                        likeCount.text = getViewFormInt(post.likeCount)
                         R.drawable.outline_favorite_24
                     }
                 )
             }
             share.setOnClickListener {
                 post.shareCount += 1
-                shareCount.text = getStrViewFromInt(post.shareCount)
+                shareCount.text = getViewFormInt(post.shareCount)
+            }
+            views.setOnClickListener {
+                post.viewCount += 1
+                viewCount.text = getViewFormInt(post.viewCount)
             }
         }
     }

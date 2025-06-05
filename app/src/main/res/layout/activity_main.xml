@@ -12,6 +12,8 @@
         android:id="@+id/avatar"
         android:layout_width="@dimen/posts_avatar_size"
         android:layout_height="@dimen/posts_avatar_size"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:contentDescription="@string/description_post_author_avatar"
         android:src="@drawable/netology_avatar"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +24,7 @@
         android:id="@+id/author"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="@dimen/common_spacing"
         android:ellipsize="end"
         android:maxLines="2"
         app:layout_constraintBottom_toTopOf="@id/published"
@@ -65,6 +67,7 @@
         android:id="@+id/content"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="@dimen/common_spacing"
         android:autoLink="web"
         app:layout_constraintEnd_toEndOf="parent"
@@ -82,11 +85,13 @@
 
     <ImageButton
         android:id="@+id/favorite_border"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="@dimen/posts_avatar_size"
+        android:layout_height="@dimen/posts_avatar_size"
+        android:layout_marginStart="0dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/favorite"
         android:src="@drawable/outline_favorite_24"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/bottom_barrier" />
 
     <TextView
@@ -98,10 +103,10 @@
         app:layout_constraintTop_toTopOf="@+id/favorite_border"
         tools:text="@sample/posts.json/data/likeCount" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/share"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="@dimen/posts_avatar_size"
+        android:layout_height="@dimen/posts_avatar_size"
         android:layout_marginStart="16dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/favorite"
@@ -119,26 +124,27 @@
         app:layout_constraintTop_toTopOf="@+id/share"
         tools:text="@sample/posts.json/data/shareCount" />
 
-
-    <TextView
-        android:id="@+id/view_count"
-        android:layout_width="25dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/views"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/views"
-        tools:text="@sample/posts.json/data/viewCount" />
-
-    <ImageView
+    <ImageButton
         android:id="@+id/views"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="@dimen/posts_avatar_size"
+        android:layout_height="@dimen/posts_avatar_size"
+        android:layout_marginStart="322dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/favorite"
         android:src="@drawable/outline_remove_red_eye_24"
         app:layout_constraintBottom_toBottomOf="@+id/share_count"
-        app:layout_constraintEnd_toStartOf="@+id/view_count"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/share_count" />
+
+    <TextView
+        android:id="@+id/view_count"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/views"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/views"
+        app:layout_constraintTop_toTopOf="@+id/views"
+        tools:text="@sample/posts.json/data/viewCount" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

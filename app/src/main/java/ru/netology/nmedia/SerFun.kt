@@ -2,7 +2,7 @@ package ru.netology.nmedia
 
 import java.math.RoundingMode
 
-fun getStrViewFromInt(i: Int): String {
+fun getViewFormInt(i: Int): String {
     return if (i < 1000) {
         i.toString()
     } else if (i < 10000) {
