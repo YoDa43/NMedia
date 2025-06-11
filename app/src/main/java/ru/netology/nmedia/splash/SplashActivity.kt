@@ -1,4 +1,4 @@
-package ru.netology.nmedia
+package ru.netology.nmedia.splash
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -6,7 +6,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
-
+import ru.netology.nmedia.R
+import ru.netology.nmedia.activity.MainActivity
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
