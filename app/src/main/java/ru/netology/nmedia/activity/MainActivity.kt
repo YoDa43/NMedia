@@ -5,7 +5,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.ActivityMainBinding
-import ru.netology.nmedia.logic_fun.getViewFormInt
+import ru.netology.nmedia.logicFun.getViewFormInt
 import ru.netology.nmedia.viewmodel.PostViewModel
 import kotlin.getValue
 
