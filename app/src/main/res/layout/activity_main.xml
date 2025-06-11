@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/common_spacing"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
     <ImageView
         android:id="@+id/avatar"
@@ -49,7 +49,7 @@
         android:layout_height="24dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/description_post_menu"
-        android:src="@drawable/outline_more_vert_24"
+        android:src="@drawable/ellipsis_vert"
         app:layout_constraintBottom_toBottomOf="@id/author"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/author" />
@@ -85,7 +85,7 @@
         android:layout_height="@dimen/posts_avatar_size"
         android:background="@android:color/transparent"
         android:contentDescription="@string/favorite"
-        android:src="@drawable/outline_favorite_24"
+        android:src="@drawable/empty_heart"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/bottom_barrier" />
 
@@ -104,7 +104,7 @@
         android:layout_height="@dimen/posts_avatar_size"
         android:background="@android:color/transparent"
         android:contentDescription="@string/favorite"
-        android:src="@drawable/baseline_share_24"
+        android:src="@drawable/share"
         app:layout_constraintBottom_toBottomOf="@+id/like_count"
         app:layout_constraintStart_toEndOf="@+id/like_count"
         app:layout_constraintTop_toTopOf="@+id/like_count" />
@@ -124,7 +124,7 @@
         android:layout_height="@dimen/posts_avatar_size"
         android:background="@android:color/transparent"
         android:contentDescription="@string/favorite"
-        android:src="@drawable/outline_remove_red_eye_24"
+        android:src="@drawable/eye_view"
         app:layout_constraintEnd_toStartOf="@+id/view_count"
         app:layout_constraintTop_toTopOf="@id/bottom_barrier" />
 
