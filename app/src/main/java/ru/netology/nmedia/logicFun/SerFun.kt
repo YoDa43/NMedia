@@ -1,4 +1,4 @@
-package ru.netology.nmedia.logic_fun
+package ru.netology.nmedia.logicFun
 
 import java.math.RoundingMode
 
