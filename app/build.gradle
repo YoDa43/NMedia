@@ -35,6 +35,7 @@ android {
 }
 
 dependencies {
+
     implementation libs.androidx.core.ktx
     implementation libs.androidx.appcompat
     implementation libs.material
@@ -47,4 +48,7 @@ dependencies {
     implementation libs.lifecycle.viewmodel.ktx
     implementation libs.lifecycle.livedata.ktx
     testImplementation libs.androidx.core.testing
+
+    implementation libs.androidx.recyclerview
+
 }
