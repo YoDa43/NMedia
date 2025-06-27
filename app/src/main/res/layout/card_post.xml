@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/common_spacing"
-    tools:context=".activity.MainActivity">
+    tools:context=".activity.MainActivity"
+    tools:ignore="MissingClass">
 
     <ImageView
         android:id="@+id/avatar"
@@ -50,9 +51,11 @@
         android:background="@android:color/transparent"
         android:contentDescription="@string/description_post_menu"
         android:src="@drawable/ellipsis_vert"
+        android:tint="?attr/color"
         app:layout_constraintBottom_toBottomOf="@id/author"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/author" />
+        app:layout_constraintTop_toTopOf="@+id/author"
+        tools:ignore="UseAppTint" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier"
@@ -80,22 +83,24 @@
         app:constraint_referenced_ids="content" />
 
     <ImageButton
-        android:id="@+id/favorite_border"
+        android:id="@+id/heart"
         android:layout_width="@dimen/posts_avatar_size"
         android:layout_height="@dimen/posts_avatar_size"
         android:background="@android:color/transparent"
         android:contentDescription="@string/favorite"
         android:src="@drawable/empty_heart"
+        android:tint="?attr/color"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/bottom_barrier" />
+        app:layout_constraintTop_toTopOf="@id/bottom_barrier"
+        tools:ignore="UseAppTint" />
 
     <TextView
         android:id="@+id/like_count"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/favorite_border"
-        app:layout_constraintStart_toEndOf="@+id/favorite_border"
-        app:layout_constraintTop_toTopOf="@+id/favorite_border"
+        app:layout_constraintBottom_toBottomOf="@+id/heart"
+        app:layout_constraintStart_toEndOf="@+id/heart"
+        app:layout_constraintTop_toTopOf="@+id/heart"
         tools:text="@sample/posts.json/data/likeCount" />
 
     <ImageButton
@@ -105,9 +110,11 @@
         android:background="@android:color/transparent"
         android:contentDescription="@string/favorite"
         android:src="@drawable/share"
+        android:tint="?attr/color"
         app:layout_constraintBottom_toBottomOf="@+id/like_count"
         app:layout_constraintStart_toEndOf="@+id/like_count"
-        app:layout_constraintTop_toTopOf="@+id/like_count" />
+        app:layout_constraintTop_toTopOf="@+id/like_count"
+        tools:ignore="UseAppTint" />
 
     <TextView
         android:id="@+id/share_count"
@@ -125,8 +132,10 @@
         android:background="@android:color/transparent"
         android:contentDescription="@string/favorite"
         android:src="@drawable/eye_view"
+        android:tint="?attr/color"
         app:layout_constraintEnd_toStartOf="@+id/view_count"
-        app:layout_constraintTop_toTopOf="@id/bottom_barrier" />
+        app:layout_constraintTop_toTopOf="@id/bottom_barrier"
+        tools:ignore="UseAppTint" />
 
     <TextView
         android:id="@+id/view_count"

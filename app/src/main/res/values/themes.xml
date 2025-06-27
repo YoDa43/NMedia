@@ -3,6 +3,7 @@
     <style name="Base.Theme.NMedia" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="color">@color/black</item>
     </style>
 
     <style name="Theme.NMedia" parent="Base.Theme.NMedia" />
