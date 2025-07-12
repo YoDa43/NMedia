@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/common_spacing"
         android:ellipsize="end"
-        android:maxLines="1"
+        android:maxLines="2"
         app:layout_constraintBottom_toTopOf="@id/published"
         app:layout_constraintEnd_toStartOf="@id/more"
         app:layout_constraintStart_toEndOf="@id/avatar"
@@ -44,18 +44,17 @@
         app:layout_constraintVertical_bias="2.0"
         tools:text="@sample/posts.json/data/published" />
 
-    <ImageView
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/more"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        style="@style/StyleButton"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/description_post_menu"
-        android:src="@drawable/ellipsis_vert"
-        android:tint="?attr/color"
+        app:icon="@drawable/ellipsis_vert"
         app:layout_constraintBottom_toBottomOf="@id/author"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/author"
-        tools:ignore="UseAppTint" />
+        app:layout_constraintTop_toTopOf="@+id/author" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier"
@@ -82,51 +81,46 @@
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="content" />
 
-    <ImageButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/heart"
-        android:layout_width="@dimen/posts_avatar_size"
-        android:layout_height="@dimen/posts_avatar_size"
+        style="@style/StyleLikeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_like"
+        android:checkable="true"
         android:background="@android:color/transparent"
         android:contentDescription="@string/favorite"
-        android:src="@drawable/empty_heart"
-        android:tint="?attr/color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/bottom_barrier"
-        tools:ignore="UseAppTint" />
+        tools:checked="true"
+        tools:text="999"/>
 
     <TextView
         android:id="@+id/like_count"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/heart"
-        app:layout_constraintStart_toEndOf="@+id/heart"
-        app:layout_constraintTop_toTopOf="@+id/heart"
-        tools:text="@sample/posts.json/data/likeCount" />
+        android:layout_height="0dp" />
 
-    <ImageButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/share"
-        android:layout_width="@dimen/posts_avatar_size"
-        android:layout_height="@dimen/posts_avatar_size"
+        style="@style/StyleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:contentDescription="@string/favorite"
-        android:src="@drawable/share"
-        android:tint="?attr/color"
-        app:layout_constraintBottom_toBottomOf="@+id/like_count"
-        app:layout_constraintStart_toEndOf="@+id/like_count"
-        app:layout_constraintTop_toTopOf="@+id/like_count"
-        tools:ignore="UseAppTint" />
+        app:icon="@drawable/share"
+        app:layout_constraintStart_toEndOf="@+id/heart"
+        app:layout_constraintTop_toBottomOf="@+id/content"
+        tools:text="999" />
 
     <TextView
         android:id="@+id/share_count"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/share"
-        app:layout_constraintStart_toEndOf="@+id/share"
-        app:layout_constraintTop_toTopOf="@+id/share"
+        android:layout_height="0dp"
         tools:text="@sample/posts.json/data/shareCount" />
 
     <ImageButton
         android:id="@+id/views"
+        style="@style/StyleButton"
         android:layout_width="@dimen/posts_avatar_size"
         android:layout_height="@dimen/posts_avatar_size"
         android:background="@android:color/transparent"
@@ -139,6 +133,7 @@
 
     <TextView
         android:id="@+id/view_count"
+        android:textColor="@color/color_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/views"

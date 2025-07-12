@@ -43,23 +43,18 @@ class PostViewHolder(
         author.text = post.author
         content.text = post.content
         published.text = post.published
-        likeCount.text = getViewFormInt(post.likeCount)
-        shareCount.text = getViewFormInt(post.shareCount)
         viewCount.text = post.viewCount.toString()
-        heart.setImageResource(
-            if (post.like) {
-                R.drawable.red_heart
-            } else {
-                R.drawable.empty_heart
-            }
-        )
+        heart.apply {
+            isChecked = post.like
+            text = getViewFormInt(post.likeCount)
+        }
         heart.setOnClickListener {
             onInteractorListener.onLike(post)
-//            onLikeListener(post)
         }
+        share.text = getViewFormInt(post.shareCount)
+
         share.setOnClickListener {
             onInteractorListener.onShare(post)
-//            onShareListener(post)
         }
         more.setOnClickListener {
             PopupMenu(it.context, it).apply {
@@ -68,7 +63,6 @@ class PostViewHolder(
                     when (item.itemId) {
                         R.id.remove -> {
                             onInteractorListener.onRemove(post)
-//                            onRemoveListener(post)
                             true
                         }
                         R.id.edit -> {
