@@ -4,11 +4,10 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="color">@color/black</item>
-
+        <item name="colorPrimary">@color/white</item>
     </style>
 
     <style name="Theme.NMedia" parent="Base.Theme.NMedia">
-        <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryDark">@color/black</item>
         <item name="android:textColorLink">#0DAEC7</item>
     </style>
