@@ -5,7 +5,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/common_spacing"
+    android:layout_marginTop="40dp"
+    android:layout_marginStart="@dimen/common_spacing"
+    android:layout_marginEnd="@dimen/common_spacing"
     tools:context=".activity.MainActivity"
     tools:ignore="MissingClass">
 
@@ -52,9 +54,9 @@
         android:background="@android:color/transparent"
         android:contentDescription="@string/description_post_menu"
         app:icon="@drawable/ellipsis_vert"
-        app:layout_constraintBottom_toBottomOf="@id/author"
+
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/author" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier"
@@ -86,14 +88,14 @@
         style="@style/StyleLikeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:icon="@drawable/ic_like"
-        android:checkable="true"
         android:background="@android:color/transparent"
+        android:checkable="true"
         android:contentDescription="@string/favorite"
+        app:icon="@drawable/ic_like"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/bottom_barrier"
         tools:checked="true"
-        tools:text="999"/>
+        tools:text="999" />
 
     <TextView
         android:id="@+id/like_count"
@@ -105,6 +107,7 @@
         style="@style/StyleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing"
         android:background="@android:color/transparent"
         android:contentDescription="@string/favorite"
         app:icon="@drawable/share"
@@ -118,28 +121,22 @@
         android:layout_height="0dp"
         tools:text="@sample/posts.json/data/shareCount" />
 
-    <ImageButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/views"
         style="@style/StyleButton"
-        android:layout_width="@dimen/posts_avatar_size"
-        android:layout_height="@dimen/posts_avatar_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:contentDescription="@string/favorite"
-        android:src="@drawable/eye_view"
-        android:tint="?attr/color"
-        app:layout_constraintEnd_toStartOf="@+id/view_count"
+        app:icon="@drawable/eye_view"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/bottom_barrier"
-        tools:ignore="UseAppTint" />
+        tools:text="999" />
 
     <TextView
         android:id="@+id/view_count"
-        android:textColor="@color/color_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/views"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/views"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         tools:text="@sample/posts.json/data/viewCount" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
