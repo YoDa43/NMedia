@@ -9,4 +9,5 @@ data class Post (
     val like: Boolean = false,
     val shareCount: Int = 0,
     val viewCount: Int = 0,
+    val videoUrl: String? = null,
 )

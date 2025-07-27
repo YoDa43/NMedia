@@ -61,4 +61,8 @@ class PostViewModel : ViewModel() {
         edited.value = empty
     }
 
+    fun setEmtyPostToEdited() {
+        edited.value =empty
+    }
+
 }

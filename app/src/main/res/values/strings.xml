@@ -10,4 +10,7 @@
     <string name="menu_edit">Edited</string>
     <string name="edit_message">Edit Message</string>
     <string name="chooser_share_post">Share post</string>
+    <string name="post_save">Post save</string>
+    <string name="add_post">Add post</string>
+    <string name="play_web_video">Play web video</string>
 </resources>

@@ -3,6 +3,8 @@ package ru.netology.nmedia.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import ru.netology.nmedia.data.Post
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class PostRepositoryInMemoryImpl : PostRepository {
 
@@ -90,7 +92,11 @@ class PostRepositoryInMemoryImpl : PostRepository {
                     id = index++,
                     author = "Me",
                     like = false,
-                    published = "now",
+                    published = LocalDateTime.now()
+                        .format(
+                            DateTimeFormatter
+                                .ofPattern("d MMMM" + " в" + " HH:mm")
+                        )
                 )
             ) + posts
         } else {
