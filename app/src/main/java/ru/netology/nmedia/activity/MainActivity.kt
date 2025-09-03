@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
             override fun onVideoPlay(post: Post) {
                 val intent = Intent(Intent.ACTION_VIEW, post.videoUrl?.toUri())
-                if (intent.resolveActivity(packageManager) != null) {
+                if (packageManager != null) {
                     val playWebVideoIntent =
                         Intent.createChooser(intent, getString(R.string.play_web_video))
                     startActivity(playWebVideoIntent)
