@@ -21,15 +21,16 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/common_spacing"
         android:contentDescription="@string/add_post"
         android:alpha="0.8"
-        app:backgroundTint="#59FAF5"
+        app:backgroundTint="#01FDF1"
+        app:rippleColor="@color/red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/add_24"
-        app:tint="@null"/>
+        app:srcCompat="@drawable/add_24"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

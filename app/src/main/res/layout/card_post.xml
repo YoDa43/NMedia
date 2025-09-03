@@ -78,16 +78,19 @@
 
     <ImageButton
         android:id="@+id/videoUrl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/content"
-        app:layout_constraintEnd_toEndOf = "parent"
-
-        android:visibility="gone"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="379dp"
+        android:layout_marginBottom="272dp"
         android:clickable="true"
+        android:contentDescription="TODO"
         android:focusable="true"
-        tools:ignore="ContentDescription" />
+        android:src="@drawable/media_link"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/bottom_barrier"

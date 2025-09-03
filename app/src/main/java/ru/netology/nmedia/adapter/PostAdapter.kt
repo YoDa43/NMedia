@@ -1,6 +1,7 @@
 package ru.netology.nmedia.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import androidx.recyclerview.widget.DiffUtil
@@ -10,10 +11,9 @@ import ru.netology.nmedia.R
 import ru.netology.nmedia.data.Post
 import ru.netology.nmedia.databinding.CardPostBinding
 import ru.netology.nmedia.logicFun.getViewFormInt
-import kotlin.toString
 
 
-interface OnInteractorListener{
+interface OnInteractorListener {
     fun onLike(post: Post)
     fun onShare(post: Post)
     fun onRemove(post: Post)
@@ -41,6 +41,11 @@ class PostViewHolder(
     private val onInteractorListener: OnInteractorListener
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(post: Post) = with(binding) {
+        if (post.videoUrl != null) {
+            videoUrl.visibility = View.VISIBLE
+        } else {
+            videoUrl.visibility = View.GONE
+        }
         author.text = post.author
         content.text = post.content
         published.text = post.published
@@ -53,7 +58,6 @@ class PostViewHolder(
             onInteractorListener.onLike(post)
         }
         share.text = getViewFormInt(post.shareCount)
-
         share.setOnClickListener {
             onInteractorListener.onShare(post)
         }
@@ -66,19 +70,20 @@ class PostViewHolder(
                             onInteractorListener.onRemove(post)
                             true
                         }
+
                         R.id.edit -> {
                             onInteractorListener.onEdit(post)
                             true
                         }
+
                         else -> false
                     }
                 }
             }.show()
         }
-        videoUrl.setOnClickListener{
+        videoUrl.setOnClickListener {
             onInteractorListener.onVideoPlay(post)
         }
-
     }
 }
 
@@ -90,5 +95,4 @@ object PostDiffCallBack : DiffUtil.ItemCallback<Post>() {
     override fun areContentsTheSame(oldItem: Post, newItem: Post): Boolean {
         return oldItem == newItem
     }
-
 }

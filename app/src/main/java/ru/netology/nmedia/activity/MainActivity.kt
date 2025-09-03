@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val viewModel: PostViewModel by viewModels()
-        val newPostLauncher = registerForActivityResult(NewPostResultContract) { result ->
+        val newPostLauncher = registerForActivityResult(NewPostResultContract()) { result ->
             result ?: run {
                 viewModel.setEmtyPostToEdited()
                 return@registerForActivityResult
@@ -40,8 +40,8 @@ class MainActivity : AppCompatActivity() {
 
                 val intent = Intent().apply {
                     action = Intent.ACTION_SEND
-                    putExtra(Intent.EXTRA_TEXT, post.content)
                     type = "text/plain"
+                    putExtra(Intent.EXTRA_TEXT, post.content)
                 }
 
                 val shareIntent =
@@ -68,13 +68,10 @@ class MainActivity : AppCompatActivity() {
                     startActivity(playWebVideoIntent)
                 }
             }
-
-
         }
         )
 
         binding.list.adapter = adapter
-
         viewModel.data.observe(this) { posts ->
             val isNew = posts.size != adapter.itemCount
             adapter.submitList(posts) {

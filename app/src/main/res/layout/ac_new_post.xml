@@ -26,14 +26,14 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/ok"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/post_save"
-        app:backgroundTint="#59FAF5"
+        app:backgroundTint="#01FDF1"
+        app:rippleColor="@color/red"
         app:layout_anchor="@id/bottomAppBar"
         app:maxImageSize="48dp"
-        app:srcCompat="@drawable/ok_done"
-        app:tint="@null" />
+        app:srcCompat="@drawable/ok_done"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
