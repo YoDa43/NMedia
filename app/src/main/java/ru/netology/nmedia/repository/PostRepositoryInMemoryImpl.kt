@@ -30,7 +30,6 @@ class PostRepositoryInMemoryImpl : PostRepository {
             like = false,
             shareCount = 99,
             viewCount = 0,
-            videoUrl = "https://rutube.ru/video/371af050a70ac300f98d4ebc151edfc5/?r=plwd",
         ),
 
         )

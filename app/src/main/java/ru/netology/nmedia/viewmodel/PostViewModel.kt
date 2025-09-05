@@ -1,11 +1,13 @@
 package ru.netology.nmedia.viewmodel
 
+
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import ru.netology.nmedia.data.Post
 import ru.netology.nmedia.repository.PostRepository
-import ru.netology.nmedia.repository.PostRepositoryInMemoryImpl
+import ru.netology.nmedia.repository.PostRepositoryFileImpl
 
 internal val empty = Post(
     id = 0,
@@ -16,26 +18,14 @@ internal val empty = Post(
     like = false
 )
 
-class PostViewModel : ViewModel() {
-    private val repository: PostRepository = PostRepositoryInMemoryImpl()
+class PostViewModel(application: Application) : AndroidViewModel(application) {
+    private val repository: PostRepository = PostRepositoryFileImpl(application)
 
     val data: LiveData<List<Post>> = repository.get()
-    val edited = MutableLiveData(empty)
-    private val _isEditing = MutableLiveData(false)
-    val isEditing: LiveData<Boolean> = _isEditing
-
-    fun startEditing() {
-        _isEditing.value = true
-    }
-
-    fun stopEditing() {
-        _isEditing.value = false
-    }
-
+    private val edited = MutableLiveData(empty)
     fun like(id: Long) = repository.like(id)
     fun share(id: Long) = repository.share(id)
     fun removeById(id: Long) = repository.removeById(id)
-
     fun changeContent(content: String) {
         val text = content.trim()
         edited.value?.let {
@@ -55,10 +45,6 @@ class PostViewModel : ViewModel() {
 
     fun edit(post: Post) {
         edited.value = post
-    }
-
-    fun setPostToEdited() {
-        edited.value = empty
     }
 
     fun setEmtyPostToEdited() {
