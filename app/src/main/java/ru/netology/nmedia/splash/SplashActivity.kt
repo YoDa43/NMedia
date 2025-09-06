@@ -9,7 +9,7 @@ import android.os.Parcel
 import android.os.Parcelable
 import androidx.appcompat.app.AppCompatActivity
 import ru.netology.nmedia.R
-import ru.netology.nmedia.activity.MainActivity
+import ru.netology.nmedia.activity.AppActivity
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity() : AppCompatActivity(), Parcelable {
@@ -22,7 +22,7 @@ class SplashActivity() : AppCompatActivity(), Parcelable {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, AppActivity::class.java)
             startActivity(intent)
             finish()
         }, splash)

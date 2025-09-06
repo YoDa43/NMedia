@@ -9,18 +9,17 @@ import ru.netology.nmedia.data.Post
 import ru.netology.nmedia.repository.PostRepository
 import ru.netology.nmedia.repository.PostRepositoryFileImpl
 
-internal val empty = Post(
+private val empty = Post(
     id = 0,
     author = "",
     content = "",
     published = "",
     likeCount = 0,
-    like = false
+    like = false,
 )
 
-class PostViewModel(application: Application) : AndroidViewModel(application) {
+class PostViewModel (application: Application): AndroidViewModel(application) {
     private val repository: PostRepository = PostRepositoryFileImpl(application)
-
     val data: LiveData<List<Post>> = repository.get()
     private val edited = MutableLiveData(empty)
     fun like(id: Long) = repository.like(id)
@@ -48,6 +47,6 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun setEmtyPostToEdited() {
-        edited.value = empty
+        edited.value =empty
     }
 }

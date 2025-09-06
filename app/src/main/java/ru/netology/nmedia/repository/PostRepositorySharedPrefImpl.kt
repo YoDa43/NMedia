@@ -77,7 +77,6 @@ class PostRepositorySharedPrefImpl(context: Context) : PostRepository {
             }
         }
     }
-
     private fun sync() {
         prefs.edit {
             putString(KEY_POSTS, gson.toJson(posts))

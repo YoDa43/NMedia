@@ -10,8 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.netology.nmedia.R
 import ru.netology.nmedia.data.Post
 import ru.netology.nmedia.databinding.CardPostBinding
-import ru.netology.nmedia.logicFun.getViewFormInt
-
+import ru.netology.nmedia.util.getViewFormInt
 
 interface OnInteractorListener {
     fun onLike(post: Post)
@@ -19,6 +18,7 @@ interface OnInteractorListener {
     fun onRemove(post: Post)
     fun onEdit(post: Post)
     fun onVideoPlay(post: Post)
+    fun toSinglePost(post: Post)
 }
 
 class PostAdapter(
@@ -41,25 +41,28 @@ class PostViewHolder(
     private val onInteractorListener: OnInteractorListener
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(post: Post) = with(binding) {
+        author.text = post.author
+        content.text = post.content
+        published.text = post.published
+        share.text = getViewFormInt(post.shareCount)
+        viewCount.text = post.viewCount.toString()
+        heart.apply {
+            isChecked = post.like
+            text = post.likeCount.toString()
+        }
         if (post.videoUrl != null) {
             videoUrl.visibility = View.VISIBLE
         } else {
             videoUrl.visibility = View.GONE
         }
-        author.text = post.author
-        content.text = post.content
-        published.text = post.published
-        viewCount.text = post.viewCount.toString()
-        heart.apply {
-            isChecked = post.like
-            text = getViewFormInt(post.likeCount)
-        }
+
         heart.setOnClickListener {
             onInteractorListener.onLike(post)
+
         }
-        share.text = getViewFormInt(post.shareCount)
         share.setOnClickListener {
             onInteractorListener.onShare(post)
+
         }
         more.setOnClickListener {
             PopupMenu(it.context, it).apply {
@@ -83,6 +86,21 @@ class PostViewHolder(
         }
         videoUrl.setOnClickListener {
             onInteractorListener.onVideoPlay(post)
+        }
+        content.setOnClickListener {
+            onInteractorListener.toSinglePost(post)
+        }
+        avatar.setOnClickListener {
+            onInteractorListener.toSinglePost(post)
+        }
+        author.setOnClickListener {
+            onInteractorListener.toSinglePost(post)
+        }
+        published.setOnClickListener {
+            onInteractorListener.toSinglePost(post)
+        }
+        barrier.setOnClickListener {
+            onInteractorListener.toSinglePost(post)
         }
     }
 }
